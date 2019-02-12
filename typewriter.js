@@ -8,6 +8,15 @@ const typeSoundSpace = document.getElementById('typespace');
 let counter = 0;
 document.querySelector('#typewriter').textContent ="";
 
+document.querySelector('button').addEventListener("click", () => {
+    init();
+    document.querySelector('button').style.display = "none";
+});
+
+function init() {
+
+
+
 setInterval(() => {
     if (counter < fullText.length){
         document.querySelector('#typewriter').textContent = fullText.substring(0, counter + 1);
@@ -18,6 +27,8 @@ setInterval(() => {
     }
     counter++;
 }, delay());
+
+}
 
 function playSound() {
     if (fullText[counter] === " ") {
@@ -39,6 +50,7 @@ function delay() {
     return randomIntBetween(400, 600);
 }
 
+// I used my connections to get this function! :))
 function randomIntBetween(min,max) {
     return Math.floor(Math.random()*(max-min+1)+min);
 }
